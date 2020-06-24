@@ -6,7 +6,7 @@
 - React / Redux
 - React native (navigation , image picker)
 - Native Base
-- Axios (with mock api)
+- Axios (with firebase api)
 
 ## Install
 npm install
