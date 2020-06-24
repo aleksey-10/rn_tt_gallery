@@ -1,8 +1,10 @@
-import { galleryApi } from '../api/api';
-
-const ON_DOWNLOAD_IMAGE = 'ON_DOWNLOAD_IMG';
-const GET_IMAGES = 'GET_IMAGES';
-const SENDING_IMAGE = 'SENDING_IMAGE';
+import {
+  GET_IMAGES,
+  ON_DOWNLOAD_IMAGE,
+  SENDING_IMAGE,
+  REQUEST_IMAGES,
+  POST_IMAGE,
+} from './types';
 
 const initState = {
   uri: '',
@@ -40,22 +42,19 @@ export const galleryReducer = (prevState = initState, action) => {
 
 export const setImage = () => ({ type: ON_DOWNLOAD_IMAGE });
 
-const getImages = images => ({
+export const getImages = images => ({
   type: GET_IMAGES,
   images,
 });
 
-const sendingImage = uri => ({
+export const sendingImage = uri => ({
   type: SENDING_IMAGE,
   uri,
 });
 
-export const fetchImages = () => (dispatch) => {
-  galleryApi.get().then(images => dispatch(getImages(images)));
-};
+export const fetchImages = () => ({ type: REQUEST_IMAGES });
 
-export const sendImage = uri => (dispatch) => {
-  dispatch(sendingImage(uri));
-
-  galleryApi.add(uri).then(() => dispatch(setImage()));
-};
+export const sendImage = uri => ({
+  type: POST_IMAGE,
+  uri,
+});

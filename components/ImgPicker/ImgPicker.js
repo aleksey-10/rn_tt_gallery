@@ -1,53 +1,51 @@
 import React from 'react';
-import { Button, Text, View, H2, H3, Spinner } from 'native-base';
+import { Button, Text, View, H2, H3, Container } from 'native-base';
 import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
 export const ImgPicker = ({ handleOnPress, uri, navigate }) => (
-  <>
-    <View style={styles.container}>
-      <View style={styles.uploadInfo}>
-        {
-          !uri
-            ? (
-              (
-                <H2 style={styles.text}>Please upload a picture.</H2>
-              )
+  <Container style={styles.container}>
+    <View style={styles.uploadInfo}>
+      {
+        !uri
+          ? (
+            (
+              <H2 style={styles.text}>Please upload a picture.</H2>
             )
-            : (
-              <View>
-                <H3 style={styles.text}>
-                  Your picture was successfully uploaded.
-                </H3>
-                <Button
-                  block
-                  transparent
-                  style={styles.button}
-                  onPress={() => navigate('Gallery')}
-                >
-                  <Text style={styles.uploaded}>Check gallery</Text>
-                </Button>
-              </View>
-            )
-        }
-      </View>
-      <Button
-        block
-        info
-        large
-        style={styles.button}
-        onPress={handleOnPress}
-      >
-        <Text style={styles.text}>Upload image</Text>
-      </Button>
+          )
+          : (
+            <View>
+              <H3 style={styles.text}>
+                Your picture was successfully uploaded.
+              </H3>
+              <Button
+                block
+                transparent
+                style={styles.button}
+                onPress={() => navigate('Gallery')}
+              >
+                <Text style={styles.uploaded}>Check gallery</Text>
+              </Button>
+            </View>
+          )
+      }
     </View>
-  </>
+    <Button
+      block
+      info
+      large
+      style={styles.button}
+      onPress={handleOnPress}
+    >
+      <Text style={styles.text}>Upload image</Text>
+    </Button>
+  </Container>
 );
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 80,
+    justifyContent: 'center',
   },
   button: {
     marginHorizontal: 50,
@@ -57,9 +55,8 @@ const styles = StyleSheet.create({
   },
   uploadInfo: {
     margin: 20,
-    height: 200,
     alignSelf: 'center',
-    marginBottom: 20,
+    marginBottom: 50,
     justifyContent: 'center',
     alignItems: 'center',
   },

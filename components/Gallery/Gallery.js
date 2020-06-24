@@ -68,11 +68,6 @@ const styles = StyleSheet.create({
   },
 });
 
-Gallery.defaultProps = {
-  navigate: () => '',
-};
-
 Gallery.propTypes = {
   images: PropTypes.arrayOf(PropTypes.object).isRequired,
-  navigate: PropTypes.func,
 };

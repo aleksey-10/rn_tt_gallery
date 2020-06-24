@@ -1,7 +1,15 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import thunkMiddleware from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 import { galleryReducer } from './galleryReducer';
+import { sagaWatcher } from './sagas';
 
 const reducers = combineReducers({ gallery: galleryReducer });
 
-export const store = createStore(reducers, applyMiddleware(thunkMiddleware));
+const saga = createSagaMiddleware();
+
+export const store = createStore(
+  reducers,
+  applyMiddleware(saga),
+);
+
+saga.run(sagaWatcher);
