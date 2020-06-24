@@ -16,7 +16,7 @@ export const FooterTabs = ({ navigate }) => (
     <Footer>
       <FooterTab>
         <Button onPress={() => navigate('Gallery')}>
-          <Text>List</Text>
+          <Text>Gallery</Text>
         </Button>
         <Button onPress={() => navigate('Upload')}>
           <Text>Upload</Text>

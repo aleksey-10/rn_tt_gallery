@@ -1,20 +1,33 @@
 import React from 'react';
-import { Button, Text, View } from 'native-base';
-import { StyleSheet, Image } from 'react-native';
+import { Button, Text, View, H2, H3, Spinner } from 'native-base';
+import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import { FooterTabs } from '../FooterTabs/FooterTabs';
 
 export const ImgPicker = ({ handleOnPress, uri, navigate }) => (
   <>
     <View style={styles.container}>
-      <View style={styles.imageWrapper}>
+      <View style={styles.uploadInfo}>
         {
-          uri
+          !uri
             ? (
-              <Image source={{ uri }} style={styles.image} />
+              (
+                <H2 style={styles.text}>Please upload a picture.</H2>
+              )
             )
             : (
-              <Text style={styles.text}>Your image</Text>
+              <View>
+                <H3 style={styles.text}>
+                  Your picture was successfully uploaded.
+                </H3>
+                <Button
+                  block
+                  transparent
+                  style={styles.button}
+                  onPress={() => navigate('Gallery')}
+                >
+                  <Text style={styles.uploaded}>Check gallery</Text>
+                </Button>
+              </View>
             )
         }
       </View>
@@ -28,7 +41,6 @@ export const ImgPicker = ({ handleOnPress, uri, navigate }) => (
         <Text style={styles.text}>Upload image</Text>
       </Button>
     </View>
-    <FooterTabs navigate={ navigate } />
   </>
 );
 
@@ -43,18 +55,18 @@ const styles = StyleSheet.create({
   text: {
     textAlign: 'center',
   },
-  imageWrapper: {
-    width: 200,
+  uploadInfo: {
+    margin: 20,
     height: 200,
-    borderWidth: 1,
-    borderColor: '#000',
     alignSelf: 'center',
     marginBottom: 20,
     justifyContent: 'center',
+    alignItems: 'center',
   },
-  image: {
-    alignSelf: 'stretch',
-    flex: 1,
+  uploaded: {
+    paddingTop: 30,
+    color: 'green',
+    textAlign: 'center',
   },
 });
 
