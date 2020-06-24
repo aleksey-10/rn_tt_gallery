@@ -18,7 +18,11 @@ export const galleryReducer = (prevState = initState, action) => {
     case GET_IMAGES:
       return {
         ...prevState,
-        images: [...action.images],
+        images: Object.entries(action.images).map(image => ({
+          id: image[0],
+          image: image[1].image,
+          date: image[1].date,
+        })),
         isLoading: false,
       };
 

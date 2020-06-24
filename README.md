@@ -1,5 +1,7 @@
 # Gallery
 
+[DEMO](https://www.loom.com/share/f6e270b77d1f4066b59c91456e4f1309)
+
 ## Tech stack
 - React / Redux
 - React native (navigation , image picker)
@@ -13,6 +15,3 @@ npm install
 npm start
 
 npm run android (check [Android development environment](https://reactnative.dev/docs/environment-setup))
-
-### Demo
-You can also see a [demo](https://www.loom.com/share/2aa8224782aa413a85eb306b01bcac2e)

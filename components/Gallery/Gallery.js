@@ -17,16 +17,16 @@ export const Gallery = ({ images }) => (
             renderItem={({ item }) => (
               <View style={styles.imageWrapper}>
                 <Image
-                  source={{ uri: (item.uri || item.avatar) }}
+                  source={{ uri: item.image }}
                   style={styles.image}
                 />
                 <View style={styles.date}>
                   <Text>Like</Text>
-                  <Text>{getDate(item.createdAt)}</Text>
+                  <Text>{getDate(item.date)}</Text>
                 </View>
               </View>
             )}
-            keyExtractor={({ id }) => `${id}`}
+            keyExtractor={({ id }) => id}
           />
         )
         : (

@@ -18,8 +18,8 @@ export class ImgPickerContainer extends Component {
     };
 
     ImagePicker.showImagePicker(options, (response) => {
-      if (response.uri) {
-        this.props.sendImage(response.uri);
+      if (response.data) {
+        this.props.sendImage(`data:image/jpeg;base64,${response.data}`);
       }
     });
   };
