@@ -15,3 +15,6 @@ npm install
 npm start
 
 npm run android (check [Android development environment](https://reactnative.dev/docs/environment-setup))
+
+### APK File
+you can find APK file in the following path: /android/app/build/outputs/apk/release
