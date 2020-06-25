@@ -1,7 +1,6 @@
 import * as axios from 'axios';
 
 const instance = axios.create({
-  // baseURL: 'https://5ef2534725da2f0016227eb7.mockapi.io',
   baseURL: 'https://tt-gallry.firebaseio.com/',
 });
 
